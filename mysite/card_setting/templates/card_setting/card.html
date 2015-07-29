@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>党员生日贺卡</title>
+  <link rel="stylesheet" href="/static/css/idangerous.swiper.css">
+  <link rel="stylesheet" href="/static/css/scrollbar.css">
+  <link rel="stylesheet" href="/static/css/css.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+</head>
+<body>
+  <div class="pic"><img src="/static/images/pic.jpg"></div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="page1">
+          <div class="dot fadeInDown">
+            <img src="/static/images/title.png">
+          </div>
+          <div class="title-2 fadeInLeft">
+            <img src="/static/images/title-2.png">
+          </div>
+          <div class="flower fadeInLeft">
+            <img src="/static/images/flower.png">
+          </div>
+            <div class="up">
+              <div class="ups"></div>
+            </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="page2">
+          <img src="/static/images/bg3.jpg">
+            <div class="up">
+              <div class="ups"></div>
+            </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="page3">
+          <div class="container">
+            <div class="folder">
+              <div class="paper">
+                <h1>生日贺卡</h1>
+                <p>今天是您光荣加入中国共产党的周年纪念日，在这样一个特别的日子里，我们代表组织向您表示热烈的祝贺，对您为党的事业做出的贡献表示衷心的感谢！希望您继续牢记党的宗旨，增强党员意识，坚定党的信念，忠诚党的事业，发挥先锋模范作用，为共产主义事业奋斗终身！</p>
+                <p>祝您：</p>
+                <p>生日快乐！身体健康！工作顺利！阖家幸福！</p>
+              </div>
+              <div class="cover">
+                <div class="title">打开贺卡</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="page4">
+          <div class="title rotateIn">  
+            <p><div class="name">{{name}}</div>同志：</p>
+          </div>
+          <div class="text center-x fadeInLeft">
+            <p>今天是您光荣加入中国共产党<div class="year">{{year}}</div>周年纪念日，在这样一个特别的日子里，我们代表组织向您表示热烈的祝贺，对您为党的事业做出的贡献表示衷心的感谢！希望您继续牢记党的宗旨，增强党员意识，坚定党的信念，忠诚党的事业，发挥先锋模范作用，为共产主义事业奋斗终身！</p>
+            <p>祝您：</p>
+            <p>生日快乐！身体健康！</p><p>工作顺利！阖家幸福！</p>
+            <div class="footer">
+              <p>中共秦淮区委组织部机关党支部</p>
+            </div>
+          </div>
+          <ul id="cloud">
+            <li class="layer" data-depth="1.20">
+              <div class="cloud1 poa">
+                <img src="/static/images/cloud1.png" alt=""></div>
+            </li>
+            <li class="layer" data-depth="0.60">
+              <div class="cloud2 poa">
+                <img src="/static/images/cloud2.png" alt=""></div>
+            </li>
+            <li class="layer" data-depth="0.80">
+              <div class="cloud3 poa">
+                <img src="/static/images/cloud3.png" alt=""></div>
+            </li>
+          </ul>
+          <div class="footer_img slideInUp"><img src="/static/images/zhuzi.png" alt=""></div>
+          <div class="weizoom"><img src="/static/images/logo.png" style="vertical-align:middle">此页面由<a style="color:blue" href="http://www.weizoom.com/">微众传媒</a>提供</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="music">
+    <div class="music music-rotate">
+      <audio src="beishuang.mp3" autoplay="autoplay"></audio>
+    </div>
+    <span>关闭</span>
+  </div>
+  <script src="/static/js/jquery-1.9.1.min.js"></script>
+  <script src="/static/js/idangerous.swiper.min.js"></script>
+  <script src="/static/js/iscroll.js"></script>
+  <script src="/static/js/jquery.scrollme.js"></script>
+  <script src="/static/js/jquery.parallax.js"></script>
+  <script>
+  // 滑屏
+  var page = 1;
+  var mySwiper = new Swiper('.swiper-container',{
+    mode: 'vertical',    
+  });
+  // 打开贺卡
+  $(document).on('click', '.folder', function() {
+    $(this).toggleClass('opened');
+    setTimeout(function() {
+        mySwiper.swipeTo(3);
+     }, 500)
+  });
+   // 视觉差
+  $('#cloud').parallax();
+  // 音乐
+  $(document).ready(function(){
+      $('.music').click(function(){
+        var $audio=$(this).find('audio')[0];
+        $(this).toggleClass('music-rotate');
+        
+        $(this).next('span').addClass('span-move').html('开启');
+
+        if($audio){
+          if($(this).hasClass('music-rotate'))
+            $audio.play();
+          else
+            $audio.pause();
+        }
+      });
+  });
+
+  </script>
+</body>
+</html>

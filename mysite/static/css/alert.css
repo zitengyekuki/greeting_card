@@ -1,0 +1,39 @@
+.alert-modal-header {
+    background-color: #ffffff;
+    border: 1px solid buttonface;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    min-height: 16px;
+    padding: 8px;
+}
+.alert-modal-position{
+    margin: 100px auto;
+}
+.alert-modal-footer{
+    border-top: 1px solid #e5e5e5;
+    padding: 5px;
+    text-align: right;
+}
+.toast-content{
+    display: none;
+    font-size: 1.2em;
+    height: 34px;
+    left: 44%;
+    line-height: 20px;
+    margin: 0;
+    min-width: 100px;
+    padding: 8px 14px;
+    position: fixed;
+    text-align: center;
+    top: 43px;
+    z-index: 1041;
+}
+.modal-mm{
+    width: 500px;
+}
+.modal-mm textarea{
+    min-width: 480px;
+    max-width:480px;
+    min-height: 50px;
+    max-height:300px;
+}

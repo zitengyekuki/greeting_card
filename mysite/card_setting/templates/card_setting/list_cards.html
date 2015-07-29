@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+	<title>政治生日贺卡</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="/static/css/bootstrap-switch.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/alert.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/card_setting.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">政治生日贺卡</a>
+			</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					{% if second_navs %}
+						{% for second_nav in second_navs %}
+							{% for nav in second_nav.navs %}
+							<li class="{% ifequal second_nav_name nav.name %}active{% endifequal %}"><a href="{{nav.url}}">{{nav.title|safe}}</a></li>
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-4 col-md-offset-2 main">
+				<table class="table table-hover">
+			      <thead>
+			        <tr>
+			          <th>序号</th>
+			          <th>姓名</th>
+			          <th>入党周年数</th>
+			          <th>创建时间</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			      	{% if cards %}
+                        {% for card in cards %}
+				        <tr>
+				          <th scope="row">{{card.id}}</th>
+				          <td>{{card.name}}</td>
+				          <td>{{card.year}}</td>
+				          <td>{{card.created_at |date:"Y-m-d H:i:s" }}</td>
+				        </tr>
+			        	{% endfor %}
+                    {% endif %}
+			      </tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+	{% include 'alert.html' %}
+	<script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/astil.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/bootstrap-switch.min.js"></script>
+    <script src="/static/js/card_setting.js"></script>
+    <script src="/static/js/alert.js"></script>
+</body>
+</html>
